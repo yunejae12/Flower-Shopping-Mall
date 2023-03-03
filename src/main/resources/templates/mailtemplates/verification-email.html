@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>FlowerShop 메일 인증</h1>
+    <br>FlowerShop의 회원이 되신 것을 진심으로 축하드립니다.
+    <br>아래 버튼을 눌러서 이메일 인증을 완료해주세요.
+    <button th:data-url="@{http://localhost:8080/member/signUpConfirm?email={userEmail}(userEmail=${userEmail})&auth={authKey}(authKey=${authKey})}"
+            onclick="window.open(this.getAttribute('data-url'))">이메일 인증</button>
+
+</body>
+</html>
+
+<!-- https://stackoverflow.com/questions/56060155/thymeleaf-button-call-url-with-parameters-in-new-tab
+     https://blog.huiya.me/14-->
