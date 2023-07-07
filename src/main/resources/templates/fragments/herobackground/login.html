@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko"   xmlns:th="http://www.thymeleaf.org">
+<div class="hero__item set-bg" th:fragment="contents">
+    <form action ="/member/login" method="post" class="hero__text login-frame" th:action="@{/member/login}">
+        <h2>방문을 환영합니다.</h2><br />
+        <fieldset>
+            <label for="login-id">
+                아이디
+                <span>(ID)</span>
+            </label>
+            <input type="text" class="input_text" name="login-id" id="login-id" maxlength="20">
+            <input type="submit" class="primary-btn" value="로그인">
+            <br>
+            <label for="login-pw">
+                비밀번호
+                <span>(PW)</span>
+            </label>
+            <input type="password" class="input_text" name="login-pw" id="login-pw" autocomplete="off">
+        </fieldset>
+        <p>아이디 저장</p>
+    </form>
+</div>
+</html>

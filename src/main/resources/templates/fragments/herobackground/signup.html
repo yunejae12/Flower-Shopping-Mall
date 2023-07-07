@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<div class="hero__item" th:fragment="contents">
+    <form th:action="@{/member}" th:object="${memberForm}" th:method="post"  class="hero__text login-frame">
+        <h4>회원 가입</h4><br />
+        <fieldset>
+            <label for="name">
+                이름
+                <span>(name)</span>
+            </label>
+            <input type="text" class="input_text" id="name" th:field="*{name}"><br>
+            <label th:for="signup-id">
+                아이디
+                <span>(ID)</span>
+            </label>
+            <input type="text" class="input_text" th:id="signup-id" th:field="*{loginId}"maxlength="20">
+            <input type="submit" class="verification-id-btn" value="아이디 중복 확인"><br>
+            <label th:for="signup-pw">
+                비밀번호
+                <span>(PW)</span>
+            </label>
+            <input type="password" class="input_text" th:id="signup-pw" th:field="*{password}"><br>
+            <label th:for="signup-pw-confirm">
+                비밀번호 확인
+                <span>(PWCONFIRM)</span>
+            </label>
+            <input type="password" class="input_text" th:id="signup-pw-confirm"><br>
+            <label for="signup-phonenumber1">
+                휴대전화번호
+                <span>
+                    (phonenumber)
+                </span>
+            </label>
+            <input type="text" class="signup-phonenumber1" id="signup-phonenumber1" th:field="*{phoneNumber}" maxlength="11" size="11">
+            <label for="signup-email">
+                   이메일
+                   <span>
+                       (email)
+                   </span>
+            </label>
+            <input type="text" class="signup-email" id="signup-email" th:field="*{email}"><br>
+        </fieldset>
+        <input type="submit" class="primary-btn" value="회원가입">
+
+    </form>
+</div>
+</html>
