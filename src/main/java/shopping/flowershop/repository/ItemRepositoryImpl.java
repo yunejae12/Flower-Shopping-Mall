@@ -30,6 +30,11 @@ public class ItemRepositoryImpl implements ItemRepository {
         return em.find(Item.class,id);
     }
 
+    @Override
+    public Item findAll(ItemSearch itemSearch){
+        return null;
+    }
+
 
 
     @Override
@@ -52,13 +57,13 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public List<Item> findAllByPriceAscend() {
-        return em.createQuery("select i from Item i orderby i.stockQuantity asc")
+        return em.createQuery("select i from Item i orderby i.stockQuantity asc",Item.class)
                 .getResultList();
     }
 
     @Override
     public List<Item> findAllByPriceDescend() {
-        return em.createQuery("select i from Item i orderby i.stockQuantity desc")
+        return em.createQuery("select i from Item i orderby i.stockQuantity desc",Item.class)
                 .getResultList();
     }
 

@@ -12,6 +12,9 @@ import java.util.List;
 public interface ItemRepository {
     void save(Item item);
     Item findOne(Long id);
+
+    Item findAll(ItemSearch itemSearch);
+
     List<Item> findByName(String name);
     List<Item> findByCategory(Category category);
 

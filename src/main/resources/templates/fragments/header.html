@@ -38,7 +38,7 @@
                         <a href="#"><i class="fa fa-google"></i></a>
                     </div>
                     <div class="header__top__right__language">
-                        <img th:src="@{img/language.png}" alt="">
+                        <img th:src="@{/img/language.png}" alt="">
                         <div>English</div>
                         <span class="arrow_carrot-down"></span>
                         <ul>
@@ -46,14 +46,15 @@
                             <li><a href="#">English</a></li>
                         </ul>
                     </div>
+                    <div class="header__top__right__member">
+                        <a th:href="@{|/member/${message}|}" th:text="${message}"><i class="fa fa-cog"></i></a>
+                    </div>
                     <div class="header__top__right__auth">
-                        <div th:if="${message}==null">
-                            <a href="/user/login"><i class="fa fa-user"></i> Login</a>
+                        <div th:if="${message == null}">
+                            <a href="/member/login"><i class="fa fa-user"></i> Login</a>
                         </div>
-                        <div th:unless="${message}==null">
-                            <i class="fa fa-user"></i>
-                            <br>
-                            <p th:text="${message}">Logout</p>
+                        <div th:if="${message!=null}">
+                            <a th:href="@{/logout}"><i class="fa fa-user"></i>Logout</a>
 
                         </div>
                     </div>

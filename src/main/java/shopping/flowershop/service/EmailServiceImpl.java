@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService{
         helper.setTo(to);
 
         Context context = new Context();
-        templateValues.forEach((key,value)->{context.setVariable(key,value);});
+        templateValues.forEach(context::setVariable);
 
         String html = templateEngine.process("verification-email",context);
         helper.setText(html,true);

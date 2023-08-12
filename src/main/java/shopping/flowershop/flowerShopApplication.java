@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import shopping.flowershop.domain.Address;
 import shopping.flowershop.domain.Member;
+import shopping.flowershop.domain.MemberRole;
 import shopping.flowershop.service.MemberService;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class flowerShopApplication {
 		tx.begin();
 		try{
 			Address address = new Address("1","2","00000");
-			Member member = new Member("xd","abfs","aac",address,"xda@gmail.com","000-500-1111");
+			Member member = new Member("xd","abfs","aac", MemberRole.CUSTOMER,address,"xda@gmail.com","000-500-1111");
 			tx.commit();
 		}catch (Exception e){
 			e.printStackTrace();

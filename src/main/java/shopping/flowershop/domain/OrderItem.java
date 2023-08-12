@@ -16,7 +16,8 @@ public class OrderItem extends TimeBase {
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @Setter
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Setter
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 

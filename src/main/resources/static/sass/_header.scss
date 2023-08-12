@@ -146,6 +146,23 @@
     }
 }
 
+
+.header__top__right__member {
+    display: inline-block;
+    position: relative;
+    a {
+        display: block;
+        font-size: 14px;
+        color: $normal-color;
+        i {
+            margin-right: 6px;
+        }
+    }
+}
+.abcde{
+    display: inline;
+}
+
 .header__top__right__auth {
     display: inline-block;
 

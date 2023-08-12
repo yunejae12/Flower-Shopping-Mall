@@ -36,6 +36,9 @@ public class Item extends TimeBase {
     @OneToMany(mappedBy = "item")
     List<ItemFavorites> likedMembers = new ArrayList<>();
 
+    @OneToMany(mappedBy = "item")
+    List<ItemImage> images = new ArrayList<>();
+
     private String briefContent;
 
     private String content;
@@ -63,6 +66,11 @@ public class Item extends TimeBase {
 
     public void setItemSeller(Seller s){
         this.seller = s;
+    }
+
+    public void addItemImage(ItemImage img){
+        this.images.add(img);
+        img.setItem(this);
     }
 
 

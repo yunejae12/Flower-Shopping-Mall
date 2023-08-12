@@ -25,7 +25,7 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-    public String fullAddress(){
+    public String getFullAddress(){
         return getBasicAddress() + ", " + getDetailedAddress();
     }
 

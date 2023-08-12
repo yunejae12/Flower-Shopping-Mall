@@ -1,12 +1,13 @@
 package shopping.flowershop.service;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
 import shopping.flowershop.domain.Member;
 
 import java.util.List;
 
-public interface MemberService extends UserDetailsService {
+public interface MemberService{
     Long join(Member member);
+    String login(String loginId, String password);
+
     List<Member> findMembers();
     Member findOne(Long id);
     Member findByLoginId(String id);

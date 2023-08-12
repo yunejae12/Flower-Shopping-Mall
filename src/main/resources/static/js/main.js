@@ -29,6 +29,23 @@
             var containerEl = document.querySelector('.featured__filter');
             var mixer = mixitup(containerEl);
         }
+        /*
+        $.ajaxSetup({
+            beforeSend: function(xhr){
+                xhr.setRequestHeader('Authorization',sessionStorage.getItem("access_token"));
+            }
+        })
+        $.ajax({
+            type: "POST",
+            url: "/member/login",
+            success: function (xhr){
+                var accessToken = xhr.getResponseHeader('Authorization');
+                sessionStorage.setItem("access_token",accessToken);
+                console.log("login POST Token: "+accessToken);
+            }
+        });
+        */
+
     });
 
     /*------------------
@@ -224,5 +241,5 @@
 })(jQuery);
 
     /*---------------------
-        Login
+        Login JWT
     ----------------------*/

@@ -1,33 +1,57 @@
 package shopping.flowershop.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import shopping.flowershop.domain.Member;
 import shopping.flowershop.dto.MemberDto;
+import shopping.flowershop.service.MemberService;
 
 import java.security.Principal;
-
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class MainController {
-
+    private MemberService memberService;
     @GetMapping("/")
-    public String index(Model model, Principal principal){
+    public String index(Model model){
 
-
-        if(principal == null){
-            model.addAttribute("message",null);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(auth.getAuthorities().stream().anyMatch( grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_CUSTOMER"))){
+            UserDetails user = (UserDetails) auth.getPrincipal();
+            model.addAttribute("message", user.getUsername());
         }else{
-            model.addAttribute("message","" + principal.getName()+"회원님 환영합니다.");
+            model.addAttribute("message",null);
         }
 
         return "index";
     }
 
+
     @GetMapping("/member/login")
-    public String loginPage(Model model){
+    public String loginPage(){
         return "login";
+    }
+    @PostMapping("/member/login")
+    public String login(String username, String password, RedirectAttributes attributes,Model model){
+        try{
+            String name = memberService.login(username, password);
+
+            log.info("attribute name = {}",name);
+            attributes.addAttribute("name",name);
+        }catch (IllegalArgumentException e){
+            attributes.addAttribute("errorData",e.getMessage());
+            return "login";
+        }
+        return "/";
     }
 
     @GetMapping("/member/signup")
@@ -35,6 +59,8 @@ public class MainController {
         model.addAttribute("memberForm",new MemberDto());
         return "signup";
     }
+
+
 
 
     @GetMapping("/dashboard")
