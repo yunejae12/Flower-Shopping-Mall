@@ -36,5 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
-/src/main/resources/application.properties
-/src/main/resources/OAuth.properties
+### Security File ###
+/src/main/resources/application-security.properties
+/src/main/resources/META-INF/persistence.xml

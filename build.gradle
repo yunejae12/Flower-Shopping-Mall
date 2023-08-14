@@ -12,6 +12,20 @@ sourceSets {
 	}
 }
 
+processResources.dependsOn(["copySecretProperties","copySecretPersistence"])
+
+task copySecretProperties(type: Copy) {
+	from 'flowershop-security/application-security.properties'
+	into 'src/main/resources/'
+    // security 서브모듈에 있는 properties 설정파일을 복사한다.
+}
+
+task copySecretPersistence(type: Copy){
+	from 'flowershop-security/persistence.xml'
+	into 'src/main/resources/META-INF'
+	// security 서브모듈에 있는 hibernate 설정파일을 복사한다.
+}
+
 group = 'shopping'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
