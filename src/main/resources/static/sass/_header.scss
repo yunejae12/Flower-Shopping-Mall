@@ -150,18 +150,26 @@
 .header__top__right__member {
     display: inline-block;
     position: relative;
+    &:after {
+            position: absolute;
+            right: -20px;
+            top: 1px;
+            height: 20px;
+            width: 1px;
+            background: $black-color;
+            opacity: .1;
+            content: "";
+    }
     a {
-        display: block;
         font-size: 14px;
         color: $normal-color;
-        i {
-            margin-right: 6px;
-        }
+    }
+    i {
+        margin-right: 6px;
+        color: #000000;
     }
 }
-.abcde{
-    display: inline;
-}
+
 
 .header__top__right__auth {
     display: inline-block;

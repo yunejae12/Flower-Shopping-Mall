@@ -6,7 +6,8 @@
     <div th:replace="/fragments/header :: menu-bar"></div>
 </head>
 <body>
-    <div th:replace="/fragments/hero :: hero(login)"></div>
-
+    <section th:class="hero">
+        <div th:replace="/fragments/hero :: hero(login)"></div>
+    </section>
 </body>
 </html>
