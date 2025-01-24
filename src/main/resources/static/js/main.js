@@ -76,7 +76,6 @@
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
-
     /*-----------------------
         Categories Slider
     ------------------------*/
@@ -241,5 +240,5 @@
 })(jQuery);
 
     /*---------------------
-        Login JWT
+        Loading spring js
     ----------------------*/

@@ -17,8 +17,11 @@
             </label>
             <input type="password" class="input_text" th:name="password" id="login-pw" autocomplete="off">
         </fieldset>
-        <p>아이디 저장</p>
-        <div class="alert alert-danger" th:if="${errorData != null}" role="alert" th:text="${errorData} + 6662">
+        <div>
+            <a th:href="@{/member/signup}">아이디 저장</a>
+            <a th:href="@{/member/signup}">회원가입</a>
+        </div>
+        <div class="alert alert-danger" th:if="${errorData != null}" role="alert" th:text="${errorData}">
         </div>
     </form>
 </div>

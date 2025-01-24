@@ -13,25 +13,34 @@
                 아이디
                 <span>(ID)</span>
             </label>
-            <input type="text" class="input_text" th:id="signup-id" th:field="*{loginId}"maxlength="20">
-            <input type="submit" class="verification-id-btn" value="아이디 중복 확인"><br>
+            <input type="text" class="input_text" th:id="signup-id" th:field="*{loginId}">
+            <input type="button" class="verification-id-btn" value="아이디 중복 확인"><br>
+            <div class="valid-id-result"
+                 th:text="${fieldErrorResult.containsKey('idConfirmError') ? fieldErrorResult.get('idConfirmError') : (idConfirmText != null ? idConfirmText : '')}">
+            </div>
             <label th:for="signup-pw">
                 비밀번호
                 <span>(PW)</span>
             </label>
             <input type="password" class="input_text" th:id="signup-pw" th:field="*{password}"><br>
+            <div class="valid-pw" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> </div>
             <label th:for="signup-pw-confirm">
                 비밀번호 확인
                 <span>(PWCONFIRM)</span>
             </label>
-            <input type="password" class="input_text" th:id="signup-pw-confirm"><br>
+            <input type="password" class="input_text" th:field="*{passwordConfirm}" th:id="signup-pw-confirm"><br>
+            <div class="valid-pwconfirm" th:if="${#fields.hasErrors('passwordChecked')}" th:errors="*{passwordChecked}"> </div>
+            <!--
+            TODO:휴대전화 인증 기능
+            https://kih0902.tistory.com/59
+            -->
             <label for="signup-phonenumber1">
                 휴대전화번호
                 <span>
                     (phonenumber)
                 </span>
             </label>
-            <input type="text" class="signup-phonenumber1" id="signup-phonenumber1" th:field="*{phoneNumber}" maxlength="11" size="12">
+            <input type="text" class="signup-phonenumber1" id="signup-phonenumber1" th:field="*{phoneNumber}" maxlength="11" size="12"><br>
             <label for="signup-email">
                    이메일
                    <span>
@@ -41,7 +50,8 @@
             <input type="text" class="signup-email" id="signup-email" th:field="*{email}"><br>
         </fieldset>
         <input type="submit" class="primary-btn" value="회원가입">
-
     </form>
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/signup.js}"></script>
 </div>
 </html>

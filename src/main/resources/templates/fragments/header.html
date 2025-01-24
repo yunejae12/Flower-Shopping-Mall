@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header">
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
+    <meta name="description" content="식물원 Thymes">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}" type="text/css"/>
     <link rel="stylesheet" th:href="@{/css/slicknav.min.css}" type="text/css"/>
     <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"/>
 </head>
 
 <div class="header__top" th:fragment="top-bar">
@@ -28,7 +29,7 @@
                 <div class="header__top__left">
                     <ul>
                         <li><i class="fa fa-envelope"></i> yunejaega@gmail.com</li>
-                        <li>Free Shipping for all Order of $99</li>
+                        <li>₩100,000원 이상 구매시 무료 배송</li>
                     </ul>
                 </div>
             </div>
@@ -38,8 +39,8 @@
                         <a href="#"><i class="fa fa-google"></i></a>
                     </div>
                     <div class="header__top__right__language">
-                        <img th:src="@{/img/language.png}" alt="">
-                        <div>English</div>
+                        <img th:src="@{/img/language2.jpg}" alt="">
+                        <div>한국어</div>
                         <span class="arrow_carrot-down"></span>
                         <ul>
                             <li><a href="#">Korean</a></li>
@@ -47,14 +48,14 @@
                         </ul>
                     </div>
                     <div th:if="${message != null}" class="header__top__right__member">
-                        <a th:href="@{|/member/${message}|}">
+                        <a th:href="@{/user-info}">
                             <span th:text="${message}">User Name</span>
                             <i class="fa fa-cog"></i>
                         </a>
                     </div>
                     <div class="header__top__right__auth">
                         <div th:if="${message == null}">
-                            <a href="/member/login"><i class="fa fa-user"></i> Login</a>
+                            <a href="/member/login"><i class="fa fa-user"></i> 로그인</a>
                         </div>
                         <div th:if="${message!=null}">
                             <a th:href="@{/logout}">Logout</a>
@@ -95,10 +96,10 @@
         <div class="col-lg-3">
             <div class="header__cart">
                 <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    <li><a href="/favorites"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                    <li><a href="/checkout"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
+                <div class="header__cart__price">item: <span> &#8361;0</span></div>
             </div>
         </div>
     </div>

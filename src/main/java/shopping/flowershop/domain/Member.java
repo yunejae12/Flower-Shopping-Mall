@@ -26,7 +26,6 @@ public class Member extends TimeBase implements UserDetails {
     private String loginId;
 
 
-
     private String password;
     @Embedded
     private Address address;
@@ -65,6 +64,7 @@ public class Member extends TimeBase implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
+
 
     @Override
     public String getUsername() {

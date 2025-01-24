@@ -204,3 +204,13 @@
         color: #00aaff;
     }
 }
+
+/*
+TODO:carousel 버튼이 정상적으로 작동하는지 확인
+https://stackoverflow.com/questions/70819649/how-can-i-change-bootstrap-5-carousel-indicators-into-dots
+*/
+.carousel_slide carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
