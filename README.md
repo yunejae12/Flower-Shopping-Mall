@@ -14,7 +14,7 @@
 ### 1. 소비자
 - 회원가입 기능
 - 상품 조회 및 장바구니
-  - 
+-  
 - 로그인/로그아웃
 - 비회원 조회 기능
 
@@ -46,9 +46,9 @@
 | ![GET](https://img.shields.io/badge/GET-green)                                | `/shop-details`      | 상품 상세 페이지                              |
 | ![GET](https://img.shields.io/badge/GET-green)                                | `/shoping-cart`      | 장바구니 페이지                               |
 | ![GET](https://img.shields.io/badge/GET-green)                                | `/dashboard`         | 관리자 대시보드 페이지 (판매 통계 등)               |
-| ![GET](https://img.shields.io/badge/GET-green)                                | `/entrepreneur`      | 판매자 대시보드 페이지                           |
+| ![GET](https://img.shields.io/badge/GET-green)                                | `/seller`            | 판매자 대시보드 페이지                           |
 
-### 2. MemberController (회원 관리 REST API)
+### 2. MemberController (회원 관리 API)
 
 | HTTP Method                                                                 | URI                          | 설명                                           |
 |------------------------------------------------------------------------------|------------------------------|------------------------------------------------|
@@ -77,4 +77,5 @@
 | 글작성 페이지 | 게시글 보기 | 설정 페이지 |
 | --- | --- | --- |
 | ![글작성 페이지](글작성페이지.png) | ![게시글 보기](게시글보기.png) | ![설정 페이지](설정페이지.png) |
+
 
